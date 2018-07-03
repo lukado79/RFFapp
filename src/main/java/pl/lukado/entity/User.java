@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -19,13 +19,16 @@ public class User {
 	private long id;
 
 	@NotEmpty
+	@Size(min = 2, max = 40)
 	private String firstName;
 	@NotEmpty
+	@Size(min = 2, max = 60)
 	private String lastName;
 	@NotEmpty
 	@Email
 	private String email;
 	@NotEmpty
+	@Size(min = 6)
 	private String password;
 	@NotBlank
 	private boolean enabled;
