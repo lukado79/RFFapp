@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -90,9 +93,11 @@ public class Order {
 
 	@NotEmpty
 	private String Truck;
-
+	
+	@OneToOne
+	@JoinColumn(name = "status_id")
 	@NotEmpty
-	private String Status;
+	private OrderStatus Status;
 
 	@NotEmpty
 	@Size(min = 3, max = 300)
@@ -109,5 +114,8 @@ public class Order {
 	@NotEmpty
 	@DateTimeFormat(pattern = "dd/MM/YY")
 	private Date Created = new Date();
+	
+	@ManyToOne
+	private User user;
 
 }
