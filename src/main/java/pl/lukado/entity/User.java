@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -41,12 +40,10 @@ public class User {
 	private boolean enabled;
 
 	@OneToOne
-	@JoinColumn(name = "role_id")
 	@NotEmpty
 	private UserRole role;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	@JoinColumn(name = "order_id")
 	private List<Order> orders = new ArrayList<>();
 
 	public long getId() {
