@@ -37,7 +37,7 @@ public class Order {
 	@NotEmpty
 	@Column(name = "Load_Street")
 	@Size(min = 3, max = 60)
-	private String LoadStreet;
+	private String loadStreet;
 
 	@NotEmpty
 	@Column(name = "Load_Post_Code")
@@ -67,7 +67,7 @@ public class Order {
 	@NotEmpty
 	@Column(name = "Unload_Street")
 	@Size(min = 3, max = 60)
-	private String UnloadStreet;
+	private String unloadStreet;
 
 	@NotEmpty
 	@Column(name = "Unload_Post_Code")
@@ -122,5 +122,183 @@ public class Order {
 
 	@ManyToOne
 	private Stakeholder client;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getLoadComp() {
+		return loadComp;
+	}
+
+	public void setLoadComp(String loadComp) {
+		this.loadComp = loadComp;
+	}
+
+	public String getLoadStreet() {
+		return loadStreet;
+	}
+
+	public void setLoadStreet(String loadStreet) {
+		this.loadStreet = loadStreet;
+	}
+
+	public String getLoadPost() {
+		return loadPost;
+	}
+
+	public void setLoadPost(String loadPost) {
+		this.loadPost = loadPost;
+	}
+
+	public String getLoadCity() {
+		return loadCity;
+	}
+
+	public void setLoadCity(String loadCity) {
+		this.loadCity = loadCity;
+	}
+
+	public String getLoadCountry() {
+		return loadCountry;
+	}
+
+	public void setLoadCountry(String loadCountry) {
+		this.loadCountry = loadCountry;
+	}
+
+	public Date getLoadDate() {
+		return loadDate;
+	}
+
+	public void setLoadDate(Date loadDate) {
+		this.loadDate = loadDate;
+	}
+
+	public String getUnloadComp() {
+		return unloadComp;
+	}
+
+	public void setUnloadComp(String unloadComp) {
+		this.unloadComp = unloadComp;
+	}
+
+	public String getUnloadStreet() {
+		return unloadStreet;
+	}
+
+	public void setUnloadStreet(String unloadStreet) {
+		this.unloadStreet = unloadStreet;
+	}
+
+	public String getUnloadPost() {
+		return unloadPost;
+	}
+
+	public void setUnloadPost(String unloadPost) {
+		this.unloadPost = unloadPost;
+	}
+
+	public String getUnloadCity() {
+		return unloadCity;
+	}
+
+	public void setUnloadCity(String unloadCity) {
+		this.unloadCity = unloadCity;
+	}
+
+	public String getUnloadCountry() {
+		return unloadCountry;
+	}
+
+	public void setUnloadCountry(String unloadCountry) {
+		this.unloadCountry = unloadCountry;
+	}
+
+	public Date getUnloadDate() {
+		return unloadDate;
+	}
+
+	public void setUnloadDate(Date unloadDate) {
+		this.unloadDate = unloadDate;
+	}
+
+	public Stakeholder getCarier() {
+		return carier;
+	}
+
+	public void setCarier(Stakeholder carier) {
+		this.carier = carier;
+	}
+
+	public List<Truck> getTruck() {
+		return truck;
+	}
+
+	public void setTruck(List<Truck> truck) {
+		this.truck = truck;
+	}
+
+	public OrderStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	public Double getClientPrice() {
+		return clientPrice;
+	}
+
+	public void setClientPrice(Double clientPrice) {
+		this.clientPrice = clientPrice;
+	}
+
+	public Double getCarierPrice() {
+		return carierPrice;
+	}
+
+	public void setCarierPrice(Double carierPrice) {
+		this.carierPrice = carierPrice;
+	}
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Stakeholder getClient() {
+		return client;
+	}
+
+	public void setClient(Stakeholder client) {
+		this.client = client;
+	}
+	
+	
 
 }
