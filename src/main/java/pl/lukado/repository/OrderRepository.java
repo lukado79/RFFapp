@@ -6,15 +6,13 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
-
 import pl.lukado.entity.Order;
 import pl.lukado.entity.OrderStatus;
 import pl.lukado.entity.Stakeholder;
 import pl.lukado.entity.Truck;
 import pl.lukado.entity.User;
 
-@Transactional
+
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
 	List<Order> findAll();
