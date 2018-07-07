@@ -1,5 +1,63 @@
 package pl.lukado.service;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import pl.lukado.entity.StakRole;
+import pl.lukado.repository.StakRoleRepository;
+
+@Service
+@Transactional
 public class StakRoleService {
+	
+	@Autowired
+	StakRoleRepository stakRoleRepository;
+	
+	public String addStakRole(Model model) {
+		model.addAttribute("stakRole", new StakRole());
+		return "add";
+
+	}
+
+	public String addStakRole(@Valid @ModelAttribute StakRole stakRole, BindingResult result) {
+		if (result.hasErrors()) {
+			return "add";
+		} else {
+			stakRoleRepository.save(stakRole);
+			return "return:/stakRole/all";
+		}
+	}
+
+	public String allStakRole(Model model) {
+		model.addAttribute("stakRole", stakRoleRepository.findAll());
+		return "allstakRole";
+	}
+
+	public String deleteStakRole(@PathVariable long id) {
+		stakRoleRepository.deleteById(id);
+		return "redirect:/stakRole/all";
+	}
+
+	public String editStakRole(Model model, @PathVariable long id) {
+		StakRole stakRole = stakRoleRepository.findOne(id);
+		model.addAttribute("stakRole", stakRole);
+		return "editstakRole";
+	}
+
+	public String editStakRole(@Valid @ModelAttribute StakRole stakRole, BindingResult result) {
+		if (result.hasErrors()) {
+			return "edit";
+		} else {
+			stakRoleRepository.save(stakRole);
+			return "return:/stakRole/all";
+		}
+	}
 
 }
