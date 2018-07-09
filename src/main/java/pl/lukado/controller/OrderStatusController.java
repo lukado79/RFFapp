@@ -1,10 +1,14 @@
 package pl.lukado.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,7 +29,7 @@ public class OrderStatusController {
 	}
 
 	@PostMapping("/add")
-	public String addOrderStatus(OrderStatus orderStatus, BindingResult result) {
+	public String addOrderStatus(@Valid @ModelAttribute OrderStatus orderStatus, BindingResult result) {
 		return orderStatusService.addOrderStatus(orderStatus, result);
 	}
 
@@ -35,18 +39,18 @@ public class OrderStatusController {
 	}
 
 	@GetMapping("/delete")
-	public String deleteOrderStatus(long id) {
+	public String deleteOrderStatus(@PathVariable long id) {
 		return orderStatusService.deleteOrderStatus(id);
 
 	}
 
 	@GetMapping("/edit")
-	public String editOrderStatus(Model model, long id) {
+	public String editOrderStatus(Model model, @PathVariable long id) {
 		return orderStatusService.editOrderStatus(model, id);
 	}
 
 	@PostMapping("/edit")
-	public String editOrderStatus(OrderStatus orderStatus, BindingResult result) {
+	public String editOrderStatus(@Valid @ModelAttribute OrderStatus orderStatus, BindingResult result) {
 		return orderStatusService.editOrderStatus(orderStatus, result);
 	}
 

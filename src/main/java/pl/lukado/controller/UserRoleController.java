@@ -1,10 +1,14 @@
 package pl.lukado.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,7 +29,7 @@ public class UserRoleController {
 	}
 
 	@PostMapping("/add")
-	public String addUserRole(UserRole userRole, BindingResult result) {
+	public String addUserRole(@Valid @ModelAttribute UserRole userRole, BindingResult result) {
 		return userRoleService.addUserRole(userRole, result);
 	}
 
@@ -35,18 +39,18 @@ public class UserRoleController {
 	}
 
 	@GetMapping("/delete")
-	public String deleteUserRole(long id) {
+	public String deleteUserRole(@PathVariable long id) {
 		return userRoleService.deleteUserRole(id);
 
 	}
 	
 	@GetMapping("/edit")
-	public String editUserRole(Model model,long id) {
+	public String editUserRole(Model model,@PathVariable long id) {
 		return userRoleService.editUserRole(model, id);
 	}
 	
 	@PostMapping("/edit")
-	public String editUserRole(UserRole userRole, BindingResult result) {
+	public String editUserRole(@Valid @ModelAttribute UserRole userRole, BindingResult result) {
 		return userRoleService.editUserRole(userRole, result);
 	}
 

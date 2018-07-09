@@ -1,10 +1,14 @@
 package pl.lukado.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,7 +29,7 @@ public class StakRoleController {
 	}
 
 	@PostMapping("/add")
-	public String addStakRole(StakRole stakRole, BindingResult result) {
+	public String addStakRole(@Valid @ModelAttribute StakRole stakRole, BindingResult result) {
 		return stakRoleService.addStakRole(stakRole, result);
 	}
 
@@ -35,18 +39,18 @@ public class StakRoleController {
 	}
 
 	@GetMapping("/delete")
-	public String deleteStakRole(long id) {
+	public String deleteStakRole(@PathVariable long id) {
 		return stakRoleService.deleteStakRole(id);
 
 	}
 
 	@GetMapping("/edit")
-	public String editStakRole(Model model, long id) {
+	public String editStakRole(Model model, @PathVariable long id) {
 		return stakRoleService.editStakRole(model, id);
 	}
 
 	@PostMapping("/edit")
-	public String editStakRole(StakRole stakRole, BindingResult result) {
+	public String editStakRole(@Valid @ModelAttribute StakRole stakRole, BindingResult result) {
 		return stakRoleService.editStakRole(stakRole, result);
 	}
 
