@@ -1,15 +1,10 @@
 package pl.lukado.service;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-
 import pl.lukado.entity.OrderStatus;
 import pl.lukado.repository.OrderStatusRepository;
 
@@ -26,7 +21,7 @@ public class OrderStatusService {
 
 	}
 
-	public String addOrderStatus(@Valid @ModelAttribute OrderStatus orderStatus, BindingResult result) {
+	public String addOrderStatus(OrderStatus orderStatus, BindingResult result) {
 		if (result.hasErrors()) {
 			return "add";
 		} else {
@@ -40,18 +35,18 @@ public class OrderStatusService {
 		return "allorderStatus";
 	}
 
-	public String deleteOrderStatus(@PathVariable long id) {
+	public String deleteOrderStatus(long id) {
 		orderStatusRepository.deleteById(id);
 		return "redirect:/orderStatus/all";
 	}
 
-	public String editOrderStatus(Model model, @PathVariable long id) {
+	public String editOrderStatus(Model model, long id) {
 		OrderStatus orderStatus = orderStatusRepository.findOne(id);
 		model.addAttribute("orderStatus", orderStatus);
 		return "editorderStatus";
 	}
 
-	public String editOrderStatus(@Valid @ModelAttribute OrderStatus orderStatus, BindingResult result) {
+	public String editOrderStatus(OrderStatus orderStatus, BindingResult result) {
 		if (result.hasErrors()) {
 			return "edit";
 		} else {

@@ -16,17 +16,17 @@ import pl.lukado.repository.StakeholderRepository;
 @Service
 @Transactional
 public class StakeholderService {
-	
+
 	@Autowired
 	StakeholderRepository stakeholderRepository;
-	
+
 	public String addStakeholder(Model model) {
 		model.addAttribute("stakeholder", new Stakeholder());
 		return "add";
 
 	}
 
-	public String addStakeholder(@Valid @ModelAttribute Stakeholder stakeholder, BindingResult result) {
+	public String addStakeholder(Stakeholder stakeholder, BindingResult result) {
 		if (result.hasErrors()) {
 			return "add";
 		} else {
@@ -40,18 +40,18 @@ public class StakeholderService {
 		return "allStakeholder";
 	}
 
-	public String deleteStakeholder(@PathVariable long id) {
+	public String deleteStakeholder(long id) {
 		stakeholderRepository.deleteById(id);
 		return "redirect:/stakeholder/all";
 	}
 
-	public String editStakeholder(Model model, @PathVariable long id) {
+	public String editStakeholder(Model model, long id) {
 		Stakeholder stakeholder = stakeholderRepository.findOne(id);
 		model.addAttribute("stakeholder", stakeholder);
 		return "editstakeholder";
 	}
 
-	public String editStakeholder(@Valid @ModelAttribute Stakeholder stakeholder, BindingResult result) {
+	public String editStakeholder(Stakeholder stakeholder, BindingResult result) {
 		if (result.hasErrors()) {
 			return "edit";
 		} else {

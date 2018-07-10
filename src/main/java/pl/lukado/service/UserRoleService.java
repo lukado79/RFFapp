@@ -25,7 +25,7 @@ public class UserRoleService {
 
 	}
 
-	public String addUserRole(@Valid @ModelAttribute UserRole userRole, BindingResult result) {
+	public String addUserRole(UserRole userRole, BindingResult result) {
 		if (result.hasErrors()) {
 			return "add";
 		} else {
@@ -39,18 +39,18 @@ public class UserRoleService {
 		return "allUserRole";
 	}
 
-	public String deleteUserRole(@PathVariable long id) {
+	public String deleteUserRole(long id) {
 		userRoleRepository.deleteById(id);
 		return "redirect:/userRole/all";
 	}
 
-	public String editUserRole(Model model, @PathVariable long id) {
+	public String editUserRole(Model model, long id) {
 		UserRole userRole = userRoleRepository.findOne(id);
 		model.addAttribute("userRole", userRole);
 		return "editUserRole";
 	}
 
-	public String editUserRole(@Valid @ModelAttribute UserRole userRole, BindingResult result) {
+	public String editUserRole(UserRole userRole, BindingResult result) {
 		if (result.hasErrors()) {
 			return "edit";
 		} else {

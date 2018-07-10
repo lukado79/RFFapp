@@ -26,7 +26,7 @@ public class StakRoleService {
 
 	}
 
-	public String addStakRole(@Valid @ModelAttribute StakRole stakRole, BindingResult result) {
+	public String addStakRole(StakRole stakRole, BindingResult result) {
 		if (result.hasErrors()) {
 			return "add";
 		} else {
@@ -40,18 +40,18 @@ public class StakRoleService {
 		return "allstakRole";
 	}
 
-	public String deleteStakRole(@PathVariable long id) {
+	public String deleteStakRole(long id) {
 		stakRoleRepository.deleteById(id);
 		return "redirect:/stakRole/all";
 	}
 
-	public String editStakRole(Model model, @PathVariable long id) {
+	public String editStakRole(Model model, long id) {
 		StakRole stakRole = stakRoleRepository.findOne(id);
 		model.addAttribute("stakRole", stakRole);
 		return "editstakRole";
 	}
 
-	public String editStakRole(@Valid @ModelAttribute StakRole stakRole, BindingResult result) {
+	public String editStakRole(StakRole stakRole, BindingResult result) {
 		if (result.hasErrors()) {
 			return "edit";
 		} else {
