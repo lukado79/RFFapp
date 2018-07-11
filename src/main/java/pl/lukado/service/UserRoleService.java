@@ -16,13 +16,13 @@ public class UserRoleService {
 
 	public String addUserRole(Model model) {
 		model.addAttribute("userRole", new UserRole());
-		return "add";
+		return "addUserRole";
 
 	}
 
 	public String addUserRole(UserRole userRole, BindingResult result) {
 		if (result.hasErrors()) {
-			return "add";
+			return "addUserRole";
 		} else {
 			userRoleRepository.save(userRole);
 			return "return:/userRole/all";
@@ -47,7 +47,7 @@ public class UserRoleService {
 
 	public String editUserRole(UserRole userRole, BindingResult result) {
 		if (result.hasErrors()) {
-			return "edit";
+			return "editUserRole";
 		} else {
 			userRoleRepository.save(userRole);
 			return "return:/userRole/all";

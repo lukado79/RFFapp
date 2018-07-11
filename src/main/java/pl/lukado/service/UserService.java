@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 import pl.lukado.entity.User;
 import pl.lukado.repository.UserRepository;
 
@@ -25,13 +24,13 @@ public class UserService {
 
 	public String addUser(Model model) {
 		model.addAttribute("user", new User());
-		return "add";
+		return "addUser";
 
 	}
 
 	public String addUser(@Valid @ModelAttribute User user, BindingResult result) {
 		if (result.hasErrors()) {
-			return "add";
+			return "addUser";
 		} else {
 			userRepository.save(user);
 			return "return:/user/all";
@@ -56,12 +55,13 @@ public class UserService {
 
 	public String editUser(@Valid @ModelAttribute User user, BindingResult result) {
 		if (result.hasErrors()) {
-			return "edit";
+			return "editUser";
 		} else {
 			userRepository.save(user);
 			return "return:/user/all";
 		}
 	}
+
 	public User findByEmail(String email) {
 		User userFind = userRepository.findFirstByEmail(email);
 		return userFind;
