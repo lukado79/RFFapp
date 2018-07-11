@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pl.lukado.entity.OrderStatus;
 
-@Transactional
+
 public interface OrderStatusRepository extends JpaRepository<OrderStatus, Long> {
 	
 	List<OrderStatus> findAll();

@@ -1,5 +1,7 @@
 package pl.lukado.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+
 
 import pl.lukado.entity.User;
 import pl.lukado.repository.UserRepository;
@@ -58,5 +61,9 @@ public class UserService {
 			userRepository.save(user);
 			return "return:/user/all";
 		}
+	}
+	public User findByEmail(String email) {
+		User userFind = userRepository.findFirstByEmail(email);
+		return userFind;
 	}
 }

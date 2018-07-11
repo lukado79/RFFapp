@@ -18,19 +18,21 @@ public class Truck {
 	@NotEmpty
 	@Size(min = 3, max = 16)
 	private String plateNumber;
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getPlateNumber() {
 		return plateNumber;
 	}
+
 	public void setPlateNumber(String plateNumber) {
 		this.plateNumber = plateNumber;
 	}
-	
-	
 
 }

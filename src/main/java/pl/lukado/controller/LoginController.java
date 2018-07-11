@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.lukado.entity.User;
 import pl.lukado.entity.UserRole;
-import pl.lukado.repository.UserRepository;
+import pl.lukado.service.UserService;
 
 @Controller
 public class LoginController {
 
 	@Autowired
-	UserRepository userRepository;
+	UserService userService;
 
 	@GetMapping("/login")
 	public String login(Model model) {
@@ -26,15 +26,13 @@ public class LoginController {
 
 	@PostMapping("/login")
 	public String login(@RequestParam String password, String email, UserRole role, Model model) {
-		String roleU = userRepository.findFirstByEmail(email).getRole().toString();
-		if (BCrypt.checkpw(password, userRepository.findFirstByEmail(email).getPassword())
-				&& roleU == "admin") {
+		String roleU = userService.findByEmail(email).getRole().toString();
+		if (BCrypt.checkpw(password, userService.findByEmail(email).getPassword()) && roleU == "admin") {
 			model.addAttribute("user", email);
 			model.addAttribute("user", password);
 			model.addAttribute("user", role);
 			return "adminView";
-		} else if (BCrypt.checkpw(password, userRepository.findFirstByEmail(email).getPassword())
-				&& roleU == "forwarder") {
+		} else if (BCrypt.checkpw(password, userService.findByEmail(email).getPassword()) && roleU == "forwarder") {
 			model.addAttribute("user", email);
 			model.addAttribute("user", password);
 			model.addAttribute("user", role);
@@ -45,4 +43,9 @@ public class LoginController {
 
 	}
 
+//	@ModelAttribute("user")
+//	public User findByEmail(String email) {
+//		return userService.findByEmail(email);
+//
+//	}
 }

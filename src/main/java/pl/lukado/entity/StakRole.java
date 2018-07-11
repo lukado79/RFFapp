@@ -16,7 +16,7 @@ public class StakRole {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotEmpty
 	@Column(name = "Role")
 	@Size(min = 3, max = 30)
@@ -37,9 +37,5 @@ public class StakRole {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-	
-	
-	
-	
 
 }

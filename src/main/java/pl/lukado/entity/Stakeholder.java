@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -49,11 +50,11 @@ public class Stakeholder {
 	@Email
 	private String email;
 
-	@OneToOne
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@NotEmpty
 	private StakRole stakeRole;
 
-	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
 	private List<Order> orders = new ArrayList<>();
 
 	public long getId() {
