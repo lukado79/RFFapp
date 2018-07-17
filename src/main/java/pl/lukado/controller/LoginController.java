@@ -27,12 +27,13 @@ public class LoginController {
 	@PostMapping("/login")
 	public String login(@RequestParam String password, String email, UserRole role, Model model) {
 		String roleU = userService.findByEmail(email).getRole().toString();
-		if (BCrypt.checkpw(password, userService.findByEmail(email).getPassword()) && roleU == "admin") {
+		if (BCrypt.checkpw(password, userService.findByEmail(email).getPassword()) && "admin".equals(roleU)) {
 			model.addAttribute("user", email);
 			model.addAttribute("user", password);
 			model.addAttribute("user", role);
 			return "adminView";
-		} else if (BCrypt.checkpw(password, userService.findByEmail(email).getPassword()) && roleU == "forwarder") {
+		} else if (BCrypt.checkpw(password, userService.findByEmail(email).getPassword())
+				&& "forwarder".equals(roleU)) {
 			model.addAttribute("user", email);
 			model.addAttribute("user", password);
 			model.addAttribute("user", role);
@@ -43,9 +44,9 @@ public class LoginController {
 
 	}
 
-//	@ModelAttribute("user")
-//	public User findByEmail(String email) {
-//		return userService.findByEmail(email);
-//
-//	}
+	// @ModelAttribute("user")
+	// public User findByEmail(String email) {
+	// return userService.findByEmail(email);
+	//
+	// }
 }
