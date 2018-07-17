@@ -1,5 +1,7 @@
 package pl.lukado.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.lukado.entity.User;
+import pl.lukado.entity.UserRole;
+import pl.lukado.service.UserRoleService;
 import pl.lukado.service.UserService;
 
 @Controller
@@ -21,6 +25,8 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	@Autowired
+	UserRoleService userRoleService;
 
 	@GetMapping("/add")
 	public String addUser(Model model) {
@@ -52,5 +58,11 @@ public class UserController {
 	@PostMapping("/edit")
 	public String editUser(@Valid @ModelAttribute User user, BindingResult result) {
 		return userService.editUser(user, result);
+	}
+	
+	@ModelAttribute("userRole")
+	public List<UserRole> getUserRole(){
+		return userRoleService.getUserRole();
+		
 	}
 }
