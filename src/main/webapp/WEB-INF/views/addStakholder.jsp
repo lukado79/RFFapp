@@ -10,6 +10,7 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<h1>Add Stakeholder</h1>
 	<div class="form-group">
 		<form:form method="post" modelAttribute="stakeholder">
 			Name:<form:errors path="name" />
