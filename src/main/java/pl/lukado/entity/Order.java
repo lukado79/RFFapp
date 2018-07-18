@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -93,9 +92,9 @@ public class Order {
 	@NotEmpty
 	private Stakeholder carier;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@NotEmpty
-	private List<Truck> truck = new ArrayList<>();
+	private Truck truck;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@NotEmpty
@@ -235,11 +234,11 @@ public class Order {
 		this.carier = carier;
 	}
 
-	public List<Truck> getTruck() {
+	public Truck getTruck() {
 		return truck;
 	}
 
-	public void setTruck(List<Truck> truck) {
+	public void setTruck(Truck truck) {
 		this.truck = truck;
 	}
 
@@ -298,7 +297,5 @@ public class Order {
 	public void setClient(Stakeholder client) {
 		this.client = client;
 	}
-	
-	
 
 }
