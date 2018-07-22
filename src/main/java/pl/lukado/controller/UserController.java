@@ -25,8 +25,9 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	@Autowired
-	UserRoleService userRoleService;
+	
+
+
 
 	@GetMapping("/add")
 	public String addUser(Model model) {
@@ -62,7 +63,7 @@ public class UserController {
 	
 	@ModelAttribute("userRole")
 	public List<UserRole> getUserRole(){
-		return userRoleService.getUserRole();
+		return userService.getUserRole();
 		
 	}
 }

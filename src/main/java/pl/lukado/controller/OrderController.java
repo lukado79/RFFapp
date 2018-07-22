@@ -1,5 +1,7 @@
 package pl.lukado.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.lukado.entity.Order;
+import pl.lukado.entity.Stakeholder;
+import pl.lukado.entity.Truck;
+import pl.lukado.entity.User;
 import pl.lukado.service.OrderService;
 
 @Controller
@@ -51,5 +56,20 @@ public class OrderController {
 	@PostMapping("/edit")
 	public String editOrder(@Valid @ModelAttribute Order order, BindingResult result) {
 		return orderService.editOrder(order, result);
+	}
+	
+	@ModelAttribute("user")
+	public List<User> getUsers(){
+		return orderService.getUsers();
+	}
+	
+	@ModelAttribute("stakholder")
+	public List<Stakeholder> getStakeholder(){
+		return orderService.getStakeholder();
+	}
+	
+	@ModelAttribute("truck")
+	public List<Truck> getTrucks(){
+		return orderService.getTrucks();
 	}
 }

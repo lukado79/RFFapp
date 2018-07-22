@@ -16,31 +16,40 @@
 			<h4>Loading Address</h4>
 			Company:<form:errors path="loadComp" />
 			<form:input path="loadComp" />
+			<br>
 			Street:<form:errors path="loadStreet" />
 			<form:input path="loadStreet" />
 			City:<form:errors path="loadCity" />
 			<form:input path="loadCity" />
+			<br>
 			Post Code:<form:errors path="loadPost" />
 			<form:input path="loadPost" />
 			Country:<form:errors path="loadCountry" />
 			<form:input path="loadCountry" />
 			<h4>Loading Date</h4>
+			<br>
 			<form:errors path="loadDate" />
 			<form:input path="loadDate" />
 			<h4>Unloading Address</h4>
-			Company:<form:errors path="unloadComp" />
+			<br>
+				Company:<form:errors path="unloadComp" />
 			<form:input path="unloadComp" />
-			Street:<form:errors path="unloadStreet" />
+			<br>
+				Street:<form:errors path="unloadStreet" />
 			<form:input path="unloadStreet" />
-			City:<form:errors path="unloadCity" />
+				City:<form:errors path="unloadCity" />
 			<form:input path="unloadCity" />
-			Post Code:<form:errors path="unloadPost" />
+			<br>
+				Post Code:<form:errors path="unloadPost" />
 			<form:input path="unloadPost" />
-			Country:<form:errors path="unloadCountry" />
+				Country:<form:errors path="unloadCountry" />
 			<form:input path="unloadCountry" />
 			<h4>Unloading Date</h4>
+			<br>
 			<form:errors path="unloadDate" />
 			<form:input path="unloadDate" />
+
+
 
 			<input type="submit" value="Save">
 		</form:form>

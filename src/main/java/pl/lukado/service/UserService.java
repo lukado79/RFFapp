@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import pl.lukado.entity.User;
+import pl.lukado.entity.UserRole;
 import pl.lukado.repository.UserRepository;
+import pl.lukado.repository.UserRoleRepository;
 
 @Service
 @Transactional
@@ -21,6 +23,9 @@ public class UserService {
 
 	@Autowired
 	UserRepository userRepository;
+
+	@Autowired
+	UserRoleRepository userRoleRepository;
 
 	public String addUser(Model model) {
 		model.addAttribute("user", new User());
@@ -66,4 +71,10 @@ public class UserService {
 		User userFind = userRepository.findFirstByEmail(email);
 		return userFind;
 	}
+
+	public List<UserRole> getUserRole() {
+		List<UserRole> userRole = userRoleRepository.findAll();
+		return userRole;
+	}
+
 }

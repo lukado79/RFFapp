@@ -1,5 +1,7 @@
 package pl.lukado.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pl.lukado.entity.StakRole;
 import pl.lukado.entity.Stakeholder;
 import pl.lukado.service.StakeholderService;
 
@@ -52,5 +55,11 @@ public class StakeholderController {
 	@PostMapping("/edit")
 	public String editStakeholder(@Valid @ModelAttribute Stakeholder stakeholder, BindingResult result) {
 		return stakeholderService.editStakeholder(stakeholder, result);
+	}
+
+	@ModelAttribute("stakRole")
+	public List<StakRole> getStakRole() {
+		return stakeholderService.getStakRole();
+
 	}
 }

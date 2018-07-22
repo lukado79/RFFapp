@@ -17,13 +17,13 @@ public class StakRoleService {
 
 	public String addStakRole(Model model) {
 		model.addAttribute("stakRole", new StakRole());
-		return "add";
+		return "addStakRole";
 
 	}
 
 	public String addStakRole(StakRole stakRole, BindingResult result) {
 		if (result.hasErrors()) {
-			return "add";
+			return "addStakRole";
 		} else {
 			stakRoleRepository.save(stakRole);
 			return "return:/stakRole/all";
@@ -32,7 +32,7 @@ public class StakRoleService {
 
 	public String allStakRole(Model model) {
 		model.addAttribute("stakRole", stakRoleRepository.findAll());
-		return "allstakRole";
+		return "allStakRole";
 	}
 
 	public String deleteStakRole(long id) {
@@ -43,12 +43,12 @@ public class StakRoleService {
 	public String editStakRole(Model model, long id) {
 		StakRole stakRole = stakRoleRepository.findOne(id);
 		model.addAttribute("stakRole", stakRole);
-		return "editstakRole";
+		return "editStakRole";
 	}
 
 	public String editStakRole(StakRole stakRole, BindingResult result) {
 		if (result.hasErrors()) {
-			return "edit";
+			return "editStakRole";
 		} else {
 			stakRoleRepository.save(stakRole);
 			return "return:/stakRole/all";

@@ -1,13 +1,22 @@
 package pl.lukado.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import pl.lukado.entity.Order;
+import pl.lukado.entity.Stakeholder;
+import pl.lukado.entity.Truck;
+import pl.lukado.entity.User;
 import pl.lukado.repository.OrderRepository;
+import pl.lukado.repository.StakeholderRepository;
+import pl.lukado.repository.TruckRepository;
+import pl.lukado.repository.UserRepository;
 
 @Service
 @Transactional
@@ -15,6 +24,15 @@ public class OrderService {
 
 	@Autowired
 	OrderRepository orderRepository;
+
+	@Autowired
+	UserRepository userRepository;
+
+	@Autowired
+	StakeholderRepository stakeholderRepository;
+
+	@Autowired
+	TruckRepository truckRepository;
 
 	public String addOrder(Model model) {
 		model.addAttribute("order", new Order());
@@ -27,7 +45,7 @@ public class OrderService {
 			return "addOrder";
 		} else {
 			orderRepository.save(order);
-			return "return:/order/all";
+			return "redirect:/order/all";
 		}
 	}
 
@@ -52,7 +70,22 @@ public class OrderService {
 			return "editOrder";
 		} else {
 			orderRepository.save(order);
-			return "return:/order/all";
+			return "redirect:/order/all";
 		}
+	}
+
+	public List<User> getUsers() {
+		List<User> users = userRepository.findAll();
+		return users;
+	}
+
+	public List<Stakeholder> getStakeholder() {
+		List<Stakeholder> stakeholder = stakeholderRepository.findAll();
+		return stakeholder;
+	}
+
+	public List<Truck> getTrucks() {
+		List<Truck> truck = truckRepository.findAll();
+		return truck;
 	}
 }

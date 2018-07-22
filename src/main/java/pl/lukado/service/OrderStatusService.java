@@ -17,13 +17,13 @@ public class OrderStatusService {
 
 	public String addOrderStatus(Model model) {
 		model.addAttribute("orderStatus", new OrderStatus());
-		return "add";
+		return "addOrderStatus";
 
 	}
 
 	public String addOrderStatus(OrderStatus orderStatus, BindingResult result) {
 		if (result.hasErrors()) {
-			return "add";
+			return "addOrderStatus";
 		} else {
 			orderStatusRepository.save(orderStatus);
 			return "return:/orderStatus/all";
@@ -32,7 +32,7 @@ public class OrderStatusService {
 
 	public String allOrderStatus(Model model) {
 		model.addAttribute("orderStatus", orderStatusRepository.findAll());
-		return "allorderStatus";
+		return "allOrderStatus";
 	}
 
 	public String deleteOrderStatus(long id) {
@@ -43,7 +43,7 @@ public class OrderStatusService {
 	public String editOrderStatus(Model model, long id) {
 		OrderStatus orderStatus = orderStatusRepository.findOne(id);
 		model.addAttribute("orderStatus", orderStatus);
-		return "editorderStatus";
+		return "editOrderStatus";
 	}
 
 	public String editOrderStatus(OrderStatus orderStatus, BindingResult result) {

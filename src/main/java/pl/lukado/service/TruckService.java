@@ -22,16 +22,16 @@ public class TruckService {
 
 	public String addTruck(Model model) {
 		model.addAttribute("truck", new Truck());
-		return "add";
+		return "addTruck";
 
 	}
 
 	public String addTruck(@Valid @ModelAttribute Truck truck, BindingResult result) {
 		if (result.hasErrors()) {
-			return "add";
+			return "addTruck";
 		} else {
 			truckRepository.save(truck);
-			return "return:/truck/all";
+			return "redirect:/truck/all";
 		}
 
 	}
@@ -54,7 +54,7 @@ public class TruckService {
 
 	public String editTruck(@Valid @ModelAttribute Truck truck, BindingResult result) {
 		if (result.hasErrors()) {
-			return "edit";
+			return "editTruck";
 		} else {
 			truckRepository.save(truck);
 			return "return:/truck/all";
