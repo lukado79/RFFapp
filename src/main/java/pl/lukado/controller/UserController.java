@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.lukado.entity.User;
 import pl.lukado.entity.UserRole;
-import pl.lukado.service.UserRoleService;
 import pl.lukado.service.UserService;
 
 @Controller
