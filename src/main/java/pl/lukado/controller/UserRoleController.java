@@ -38,18 +38,18 @@ public class UserRoleController {
 		return userRoleService.allUserRole(model);
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/delete/{id}")
 	public String deleteUserRole(@PathVariable long id) {
 		return userRoleService.deleteUserRole(id);
 
 	}
 	
-	@GetMapping("/edit")
+	@GetMapping("/edit/{id}")
 	public String editUserRole(Model model,@PathVariable long id) {
 		return userRoleService.editUserRole(model, id);
 	}
 	
-	@PostMapping("/edit")
+	@PostMapping("/edit/{id}")
 	public String editUserRole(@Valid @ModelAttribute UserRole userRole, BindingResult result) {
 		return userRoleService.editUserRole(userRole, result);
 	}

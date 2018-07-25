@@ -25,7 +25,7 @@ public class UserRoleService {
 			return "addUserRole";
 		} else {
 			userRoleRepository.save(userRole);
-			return "return:/userRole/all";
+			return "redirect:/userRole/all";
 		}
 	}
 
@@ -50,7 +50,7 @@ public class UserRoleService {
 			return "editUserRole";
 		} else {
 			userRoleRepository.save(userRole);
-			return "return:/userRole/all";
+			return "redirect:/userRole/all";
 		}
 	}
 	
