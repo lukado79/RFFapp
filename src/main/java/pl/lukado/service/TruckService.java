@@ -57,7 +57,7 @@ public class TruckService {
 			return "editTruck";
 		} else {
 			truckRepository.save(truck);
-			return "return:/truck/all";
+			return "redirect:/truck/all";
 		}
 	}
 

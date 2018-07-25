@@ -21,7 +21,6 @@
 			Email:<form:errors path="email" />
 			<form:input path="email" />
 			Password:<form:input path="password"/>
-			Enabled:<form:input path="enabled"/>
 			Role:<form:select path="userRole.id" itemValue="id" itemLabel="roleName"
 				items="${userRole}" />
 			<input type="submit" value="Save">

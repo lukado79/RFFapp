@@ -11,7 +11,7 @@ public interface TruckRepository extends JpaRepository<Truck, Long> {
 
 	Truck findOne(long id);
 
-	Truck deleteById(long id);
+	void deleteById(long id);
 
 	Truck save(Truck entity);
 

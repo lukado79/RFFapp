@@ -38,18 +38,18 @@ public class TruckController {
 		return truckService.allTruck(model);
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/delete/{id}")
 	public String deleteTruck(@PathVariable long id) {
 		return truckService.deleteTruck(id);
 
 	}
 	
-	@GetMapping("/edit")
+	@GetMapping("/edit/{id}")
 	public String editTruck(Model model,@PathVariable long id) {
 		return truckService.editTruck(model, id);
 	}
 	
-	@PostMapping("/edit")
+	@PostMapping("/edit/{id}")
 	public String editTruck(@Valid @ModelAttribute Truck truck, BindingResult result) {
 		return truckService.editTruck(truck, result);
 	}
