@@ -14,6 +14,6 @@ public interface OrderStatusRepository extends JpaRepository<OrderStatus, Long> 
 	
 	OrderStatus save(OrderStatus entity);
 	
-	OrderStatus deleteById(long id);
+	void deleteById(long id);
 
 }

@@ -26,7 +26,7 @@ public class OrderStatusService {
 			return "addOrderStatus";
 		} else {
 			orderStatusRepository.save(orderStatus);
-			return "return:/orderStatus/all";
+			return "redirect:/orderStatus/all";
 		}
 	}
 
@@ -51,7 +51,7 @@ public class OrderStatusService {
 			return "edit";
 		} else {
 			orderStatusRepository.save(orderStatus);
-			return "return:/orderStatus/all";
+			return "redirect:/orderStatus/all";
 		}
 	}
 }

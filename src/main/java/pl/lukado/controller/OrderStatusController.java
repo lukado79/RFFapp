@@ -38,18 +38,18 @@ public class OrderStatusController {
 		return orderStatusService.allOrderStatus(model);
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/delete/{id}")
 	public String deleteOrderStatus(@PathVariable long id) {
 		return orderStatusService.deleteOrderStatus(id);
 
 	}
 
-	@GetMapping("/edit")
+	@GetMapping("/edit/{id}")
 	public String editOrderStatus(Model model, @PathVariable long id) {
 		return orderStatusService.editOrderStatus(model, id);
 	}
 
-	@PostMapping("/edit")
+	@PostMapping("/edit/{id}")
 	public String editOrderStatus(@Valid @ModelAttribute OrderStatus orderStatus, BindingResult result) {
 		return orderStatusService.editOrderStatus(orderStatus, result);
 	}

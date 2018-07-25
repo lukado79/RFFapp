@@ -11,14 +11,14 @@
 </head>
 <body>
 	<h4>Edit Truck</h4>
-	<div class="form-group"></div>
-	<form:form method="post" modelAttribute="truck">
+	<div class="form-group">
+		<form:form method="post" modelAttribute="truck">
 					Truck Number:<form:errors path="plateNumber" />
-		<form:input path="plateNumber" />
-		<input type="submit" value="Save">
+			<form:input path="plateNumber" />
+			<input type="submit" value="Save">
 
-	</form:form>
-
+		</form:form>
+	</div>
 
 </body>
 </html>
