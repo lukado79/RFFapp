@@ -38,18 +38,18 @@ public class StakRoleController {
 		return stakRoleService.allStakRole(model);
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/delete/{id}")
 	public String deleteStakRole(@PathVariable long id) {
 		return stakRoleService.deleteStakRole(id);
 
 	}
 
-	@GetMapping("/edit")
+	@GetMapping("/edit/{id}")
 	public String editStakRole(Model model, @PathVariable long id) {
 		return stakRoleService.editStakRole(model, id);
 	}
 
-	@PostMapping("/edit")
+	@PostMapping("/edit/{id}")
 	public String editStakRole(@Valid @ModelAttribute StakRole stakRole, BindingResult result) {
 		return stakRoleService.editStakRole(stakRole, result);
 	}

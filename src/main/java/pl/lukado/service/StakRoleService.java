@@ -26,7 +26,7 @@ public class StakRoleService {
 			return "addStakRole";
 		} else {
 			stakRoleRepository.save(stakRole);
-			return "return:/stakRole/all";
+			return "redirect:/stakRole/all";
 		}
 	}
 
@@ -51,7 +51,7 @@ public class StakRoleService {
 			return "editStakRole";
 		} else {
 			stakRoleRepository.save(stakRole);
-			return "return:/stakRole/all";
+			return "redirect:/stakRole/all";
 		}
 	}
 
