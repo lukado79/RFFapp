@@ -12,7 +12,7 @@
 <body>
 	<h4>Trucks List</h4>
 	<table>
-		<tr class="table-info">
+		<tr q>
 			<th scope="row">ID</th>
 			<th scope="row">Truck Number</th>
 		</tr>

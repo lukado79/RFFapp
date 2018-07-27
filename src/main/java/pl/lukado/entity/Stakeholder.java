@@ -49,8 +49,7 @@ public class Stakeholder {
 	@Email
 	private String email;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@NotEmpty
+	@ManyToOne
 	private StakRole stakeRole;
 
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)

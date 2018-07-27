@@ -34,7 +34,7 @@ public class StakeholderService {
 			return "addStakholder";
 		} else {
 			stakeholderRepository.save(stakeholder);
-			return "return:/stakeholder/all";
+			return "redirect:/stakeholder/all";
 		}
 	}
 
@@ -59,7 +59,7 @@ public class StakeholderService {
 			return "editStakeholder";
 		} else {
 			stakeholderRepository.save(stakeholder);
-			return "return:/stakeholder/all";
+			return "redirect:/stakeholder/all";
 		}
 	}
 

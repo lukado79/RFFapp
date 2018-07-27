@@ -13,7 +13,7 @@ public interface StakeholderRepository extends JpaRepository<Stakeholder, Long> 
 
 	Stakeholder findOne(long id);
 
-	Stakeholder deleteById(long id);
+	void deleteById(long id);
 
 	Stakeholder save(Stakeholder entity);
 

@@ -3,7 +3,6 @@ package pl.lukado.controller;
 import java.util.List;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,18 +40,18 @@ public class StakeholderController {
 		return stakeholderService.allStakeholder(model);
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/delete/{id}")
 	public String deleteStakeholder(@PathVariable long id) {
 		return stakeholderService.deleteStakeholder(id);
 
 	}
 
-	@GetMapping("/edit")
+	@GetMapping("/edit/{id}")
 	public String editStakeholder(Model model, @PathVariable long id) {
 		return stakeholderService.editStakeholder(model, id);
 	}
 
-	@PostMapping("/edit")
+	@PostMapping("/edit/{id}")
 	public String editStakeholder(@Valid @ModelAttribute Stakeholder stakeholder, BindingResult result) {
 		return stakeholderService.editStakeholder(stakeholder, result);
 	}

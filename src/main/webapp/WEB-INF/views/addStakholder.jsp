@@ -25,7 +25,8 @@
 			<form:input path="country" />
 			Email:<form:errors path="email" />
 			<form:input path="email" />
-			Role:<form:select path="stakeRole.id" itemValue="id"
+			Role:<form:errors path="stakeRole.id"/>
+			<form:select path="stakeRole.id" itemValue="id"
 				itemLabel="roleName" items="${stakRole}" />
 			<input type="submit" value="Save">
 		</form:form>
