@@ -38,8 +38,7 @@ public class User {
 	@Size(min = 6)
 	private String password;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@NotEmpty
+	@ManyToOne
 	private UserRole role;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -38,7 +38,7 @@ public class UserService {
 			return "addUser";
 		} else {
 			userRepository.save(user);
-			return "return:/user/all";
+			return "redirect:/user/all";
 		}
 	}
 
@@ -63,7 +63,7 @@ public class UserService {
 			return "editUser";
 		} else {
 			userRepository.save(user);
-			return "return:/user/all";
+			return "redirect:/user/all";
 		}
 	}
 

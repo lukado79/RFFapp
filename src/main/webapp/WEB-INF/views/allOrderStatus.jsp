@@ -31,9 +31,6 @@
 		<a href="/RFFapp/orderStatus/add">Add New Order Status</a>
 	</h4>
 
-	<h4>
-		<a href="/RFFapp/admin">Back to Admin Page</a>
-	</h4>
 
 
 

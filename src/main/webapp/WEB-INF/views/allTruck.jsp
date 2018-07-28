@@ -30,9 +30,6 @@
 		<a href="/RFFapp/truck/add">Add New Truck</a>
 	</h4>
 
-	<h4>
-		<a href="/RFFapp/admin">Back to Admin Page</a>
-	</h4>
 
 </body>
 </html>

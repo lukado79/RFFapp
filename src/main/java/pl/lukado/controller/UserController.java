@@ -44,18 +44,18 @@ public class UserController {
 		return userService.allUser(model);
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/delete/{id}")
 	public String deleteUser(@PathVariable long id) {
 		return userService.deleteUser(id);
 
 	}
 
-	@GetMapping("/edit")
+	@GetMapping("/edit/{id}")
 	public String editUser(Model model, @PathVariable long id) {
 		return userService.editUser(model, id);
 	}
 
-	@PostMapping("/edit")
+	@PostMapping("/edit/{id}")
 	public String editUser(@Valid @ModelAttribute User user, BindingResult result) {
 		return userService.editUser(user, result);
 	}

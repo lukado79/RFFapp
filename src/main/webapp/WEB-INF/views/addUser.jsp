@@ -21,7 +21,7 @@
 			Email:<form:errors path="email" />
 			<form:input path="email" />
 			Password:<form:input path="password"/>
-			Role:<form:select path="userRole.id" itemValue="id" itemLabel="roleName"
+			Role:<form:select path="role.id" itemValue="id" itemLabel="roleName"
 				items="${userRole}" />
 			<input type="submit" value="Save">
 		</form:form>

@@ -36,9 +36,7 @@
 		<a href="/RFFapp/stakRole/add">Add New Stakeholder Role</a>
 	</h4>
 
-	<h4>
-		<a href="/RFFapp/admin">Back to Admin Page</a>
-	</h4>
+
 
 </body>
 </html>
