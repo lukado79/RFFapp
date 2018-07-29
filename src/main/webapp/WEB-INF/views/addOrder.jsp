@@ -48,6 +48,31 @@
 			<br>
 			<form:errors path="unloadDate" />
 			<form:input path="unloadDate" />
+				Client Price:<form:errors path="clientPrice" />
+			<form:input path="clientPrice" />
+			<br>
+				Carier Price:<form:errors path="carierPrice" />
+			<form:input path="carierPrice" />
+			<br>
+							Remarks:<form:errors path="remarks" />
+			<form:input path="remarks" />
+			<br>
+			
+				Client:<form:select path="client.id" itemValue="id" itemLabel="name"
+				items="${client}" />
+			<br>
+				Carier:<form:select path="carier.id" itemValue="id" itemLabel="name"
+				items="${carrier}" />
+			<br>
+				Truck:<form:select path="truck.id" itemValue="id"
+				itemLabel="plateNumber" items="${truck}" />
+			<br>
+				Order Status:<form:select path="status.id" itemValue="id"
+				itemLabel="status" items="${orderStatus}" />
+			<br>
+				User:<form:select path="user.id" itemValue="id"
+				itemLabel="firstName" itemLabel="lastName" items="${user}" />
+
 
 
 

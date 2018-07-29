@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.lukado.entity.Order;
+import pl.lukado.entity.OrderStatus;
 import pl.lukado.entity.Stakeholder;
 import pl.lukado.entity.Truck;
 import pl.lukado.entity.User;
@@ -42,34 +44,46 @@ public class OrderController {
 		return orderService.allOrder(model);
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/delete/{id}")
 	public String deleteOrder(@PathVariable long id) {
 		return orderService.deleteOrder(id);
 
 	}
 
-	@GetMapping("/edit")
+	@GetMapping("/edit/{id}")
 	public String editOrder(Model model, @PathVariable long id) {
 		return orderService.editOrder(model, id);
 	}
 
-	@PostMapping("/edit")
+	@PostMapping("/edit/{id}")
 	public String editOrder(@Valid @ModelAttribute Order order, BindingResult result) {
 		return orderService.editOrder(order, result);
 	}
-	
+
 	@ModelAttribute("user")
-	public List<User> getUsers(){
+	public List<User> getUsers() {
 		return orderService.getUsers();
 	}
-	
-	@ModelAttribute("stakholder")
-	public List<Stakeholder> getStakeholder(){
-		return orderService.getStakeholder();
+
+	@ModelAttribute("carrier")
+	public List<Stakeholder> getCarrier(@Param(value = "carrier") String carrier) {
+		carrier = "carrier";
+		return orderService.getCarier(carrier);
 	}
-	
+
+	@ModelAttribute("client")
+	public List<Stakeholder> getClient(@Param(value = "client") String client) {
+		client="client";
+		return orderService.getClient(client);
+	}
+
 	@ModelAttribute("truck")
-	public List<Truck> getTrucks(){
+	public List<Truck> getTrucks() {
 		return orderService.getTrucks();
+	}
+
+	@ModelAttribute("orderStatus")
+	public List<OrderStatus> getOrderStatus() {
+		return orderService.getOrderStatus();
 	}
 }

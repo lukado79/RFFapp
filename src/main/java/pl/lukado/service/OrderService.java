@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-
 import pl.lukado.entity.Order;
+import pl.lukado.entity.OrderStatus;
 import pl.lukado.entity.Stakeholder;
 import pl.lukado.entity.Truck;
 import pl.lukado.entity.User;
 import pl.lukado.repository.OrderRepository;
+import pl.lukado.repository.OrderStatusRepository;
 import pl.lukado.repository.StakeholderRepository;
 import pl.lukado.repository.TruckRepository;
 import pl.lukado.repository.UserRepository;
@@ -33,6 +33,9 @@ public class OrderService {
 
 	@Autowired
 	TruckRepository truckRepository;
+
+	@Autowired
+	OrderStatusRepository orderStatusRepository;
 
 	public String addOrder(Model model) {
 		model.addAttribute("order", new Order());
@@ -79,8 +82,13 @@ public class OrderService {
 		return users;
 	}
 
-	public List<Stakeholder> getStakeholder() {
-		List<Stakeholder> stakeholder = stakeholderRepository.findAll();
+	public List<Stakeholder> getCarier(String stakeRole) {
+		List<Stakeholder> stakeholder = stakeholderRepository.findByStakeRoleLike(stakeRole);
+		return stakeholder;
+	}
+
+	public List<Stakeholder> getClient(String stakeRole) {
+		List<Stakeholder> stakeholder = stakeholderRepository.findByStakeRoleLike(stakeRole);
 		return stakeholder;
 	}
 
@@ -88,4 +96,10 @@ public class OrderService {
 		List<Truck> truck = truckRepository.findAll();
 		return truck;
 	}
+
+	public List<OrderStatus> getOrderStatus() {
+		List<OrderStatus> orderStatus = orderStatusRepository.findAll();
+		return orderStatus;
+	}
+
 }

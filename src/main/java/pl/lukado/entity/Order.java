@@ -84,15 +84,15 @@ public class Order {
 	@DateTimeFormat(pattern = "dd/MM/YY")
 	private Date unloadDate;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
 	@NotEmpty
 	private Stakeholder carier;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
 	@NotEmpty
 	private Truck truck;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
 	@NotEmpty
 	private OrderStatus status;
 
