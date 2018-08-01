@@ -66,13 +66,13 @@ public class OrderController {
 	}
 
 	@ModelAttribute("carrier")
-	public List<Stakeholder> getCarrier(@Param(value = "carrier") String carrier) {
+	public List<Stakeholder> getCarrier(String carrier) {
 		carrier = "carrier";
 		return orderService.getCarier(carrier);
 	}
 
 	@ModelAttribute("client")
-	public List<Stakeholder> getClient(@Param(value = "client") String client) {
+	public List<Stakeholder> getClient(String client) {
 		client="client";
 		return orderService.getClient(client);
 	}

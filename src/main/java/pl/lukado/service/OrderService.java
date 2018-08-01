@@ -14,6 +14,7 @@ import pl.lukado.entity.Truck;
 import pl.lukado.entity.User;
 import pl.lukado.repository.OrderRepository;
 import pl.lukado.repository.OrderStatusRepository;
+import pl.lukado.repository.StakRoleRepository;
 import pl.lukado.repository.StakeholderRepository;
 import pl.lukado.repository.TruckRepository;
 import pl.lukado.repository.UserRepository;
@@ -36,6 +37,9 @@ public class OrderService {
 
 	@Autowired
 	OrderStatusRepository orderStatusRepository;
+	
+	@Autowired
+	StakRoleRepository stakRoleRepository;
 
 	public String addOrder(Model model) {
 		model.addAttribute("order", new Order());
@@ -83,12 +87,12 @@ public class OrderService {
 	}
 
 	public List<Stakeholder> getCarier(String stakeRole) {
-		List<Stakeholder> stakeholder = stakeholderRepository.findByStakeRoleLike(stakeRole);
+		List<Stakeholder> stakeholder = stakeholderRepository.findByStakeRole(stakRoleRepository.findByRoleName(stakeRole));
 		return stakeholder;
 	}
 
 	public List<Stakeholder> getClient(String stakeRole) {
-		List<Stakeholder> stakeholder = stakeholderRepository.findByStakeRoleLike(stakeRole);
+		List<Stakeholder> stakeholder = stakeholderRepository.findByStakeRole(stakRoleRepository.findByRoleName(stakeRole));
 		return stakeholder;
 	}
 

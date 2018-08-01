@@ -70,8 +70,8 @@
 				Order Status:<form:select path="status.id" itemValue="id"
 				itemLabel="status" items="${orderStatus}" />
 			<br>
-				User:<form:select path="user.id" itemValue="id"
-				itemLabel="firstName" itemLabel="lastName" items="${user}" />
+				User:<form:select path="user.id" itemValue="id" itemLabel="lastName"
+				items="${user}" />
 
 
 

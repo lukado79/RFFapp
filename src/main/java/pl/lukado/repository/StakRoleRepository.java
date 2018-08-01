@@ -17,4 +17,6 @@ public interface StakRoleRepository extends JpaRepository<StakRole, Long> {
 	StakRole save(StakRole entity);
 	
 	StakRole findOne(long id);
+	
+	StakRole findByRoleName(String roleName);
 }
