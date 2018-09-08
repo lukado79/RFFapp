@@ -103,8 +103,8 @@ public class Order {
 	@Column(name = "Rate", scale = 2)
 	private Double carierPrice;
 
-	@NotEmpty
-	@DateTimeFormat(pattern = "dd/MM/YY")
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date created = new Date();
 
 	@ManyToOne
