@@ -83,15 +83,12 @@ public class Order {
 	private Date unloadDate;
 
 	@ManyToOne
-	@NotEmpty
 	private Stakeholder carier;
 
 	@ManyToOne
-	@NotEmpty
 	private Truck truck;
 
 	@ManyToOne
-	@NotEmpty
 	private OrderStatus status;
 
 	@NotEmpty
