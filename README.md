@@ -6,3 +6,9 @@ users.
 Technologies: Java, Spring, MySQL, Hibernate.
 
 # Application under development.
+
+To do:
+
+1. Secure views available for the administrator;
+2. Adding view of orders for a selected user;
+3. Adding the functionality of sorting orders according to different parameters.
