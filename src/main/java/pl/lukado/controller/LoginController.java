@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.lukado.entity.User;
-import pl.lukado.entity.UserRole;
 import pl.lukado.service.UserService;
 
 @Controller
@@ -25,28 +24,23 @@ public class LoginController {
 	}
 
 	@PostMapping("/login")
-	public String login(@RequestParam String password, String email, UserRole role, Model model) {
-		String roleU = userService.findByEmail(email).getRole().toString();
-		if (BCrypt.checkpw(password, userService.findByEmail(email).getPassword()) && "admin".equals(roleU)) {
-			model.addAttribute("user", email);
-			model.addAttribute("user", password);
-			model.addAttribute("user", role);
+	public String login(@RequestParam String password, @RequestParam String email, Model model) {
+
+		User user;
+
+		model.addAttribute("user", email);
+		model.addAttribute("user", password);
+
+		user = userService.findByEmail(email);
+		if (BCrypt.checkpw(password, user.getPassword()) && "admin".equals(user.getRole().getRoleName())) {
+
 			return "adminView";
-		} else if (BCrypt.checkpw(password, userService.findByEmail(email).getPassword())
-				&& "forwarder".equals(roleU)) {
-			model.addAttribute("user", email);
-			model.addAttribute("user", password);
-			model.addAttribute("user", role);
-			return "forwarderView";
+		} else if (BCrypt.checkpw(password, user.getPassword()) && "forwarder".equals(user.getRole().getRoleName())) {
+			return "redirect:/forwarderView";
 		} else {
 			return "wrongLogin";
 		}
 
 	}
 
-	// @ModelAttribute("user")
-	// public User findByEmail(String email) {
-	// return userService.findByEmail(email);
-	//
-	// }
 }
