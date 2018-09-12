@@ -34,13 +34,17 @@ public class LoginController {
 		User user;
 		user = userService.findByEmail(email);
 		session.setAttribute("user", user);
-		if (BCrypt.checkpw(password, user.getPassword()) && "admin".equals(user.getRole().getRoleName())) {
+		try {
+			if (BCrypt.checkpw(password, user.getPassword()) && "admin".equals(user.getRole().getRoleName())) {
 
-			return "adminView";
-		} else if (BCrypt.checkpw(password, user.getPassword()) && "user".equals(user.getRole().getRoleName())) {
-			return "forwarderView";
-		} else {
-			return "wrongLogin";
+				return "adminView";
+			} else if (BCrypt.checkpw(password, user.getPassword()) && "user".equals(user.getRole().getRoleName())) {
+				return "forwarderView";
+			} else {
+				return "wrongLogin";
+			}
+		} catch (NullPointerException e) {
+		return "home";
 		}
 
 	}
