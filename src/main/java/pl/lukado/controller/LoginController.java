@@ -1,5 +1,7 @@
 package pl.lukado.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,25 +20,25 @@ public class LoginController {
 	UserService userService;
 
 	@GetMapping("/login")
-	public String login(Model model) {
+	public String login(HttpSession session, Model model) {
+		
+		session.invalidate();
 		model.addAttribute("user", new User());
+		
 		return "login";
 	}
 
 	@PostMapping("/login")
-	public String login(@RequestParam String password, @RequestParam String email, Model model) {
+	public String login(@RequestParam String password, @RequestParam String email, HttpSession session, Model model) {
 
 		User user;
-
-		model.addAttribute("user", email);
-		model.addAttribute("user", password);
-
 		user = userService.findByEmail(email);
+		session.setAttribute("user", user);
 		if (BCrypt.checkpw(password, user.getPassword()) && "admin".equals(user.getRole().getRoleName())) {
 
 			return "adminView";
-		} else if (BCrypt.checkpw(password, user.getPassword()) && "forwarder".equals(user.getRole().getRoleName())) {
-			return "redirect:/forwarderView";
+		} else if (BCrypt.checkpw(password, user.getPassword()) && "user".equals(user.getRole().getRoleName())) {
+			return "forwarderView";
 		} else {
 			return "wrongLogin";
 		}
