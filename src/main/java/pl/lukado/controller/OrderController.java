@@ -59,6 +59,11 @@ public class OrderController {
 		return orderService.editOrder(order, result);
 	}
 
+	@GetMapping("/allByUser/{id}")
+	public String allByUser(Model model, @PathVariable long id) {
+		return orderService.orderByUser(model, id);
+	}
+
 	@ModelAttribute("user")
 	public List<User> getUsers() {
 		return orderService.getUsers();
@@ -72,7 +77,7 @@ public class OrderController {
 
 	@ModelAttribute("client")
 	public List<Stakeholder> getClient(String client) {
-		client="client";
+		client = "client";
 		return orderService.getClient(client);
 	}
 

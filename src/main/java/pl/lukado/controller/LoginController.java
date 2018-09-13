@@ -21,10 +21,10 @@ public class LoginController {
 
 	@GetMapping("/login")
 	public String login(HttpSession session, Model model) {
-		
+
 		session.invalidate();
 		model.addAttribute("user", new User());
-		
+
 		return "login";
 	}
 
@@ -44,7 +44,7 @@ public class LoginController {
 				return "wrongLogin";
 			}
 		} catch (NullPointerException e) {
-		return "home";
+			return "home";
 		}
 
 	}

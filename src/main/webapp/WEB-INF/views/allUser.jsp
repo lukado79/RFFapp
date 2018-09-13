@@ -20,6 +20,7 @@
 			<th scope="row">Email</th>
 			<th scope="row">Role</th>
 			<th scope="row">Actions</th>
+			<th scope="row">Orders</th>
 		</tr>
 		<c:forEach items="${user}" var="var">
 			<tr>
@@ -30,6 +31,8 @@
 				<td>${var.role.roleName}</td>
 				<td><a href="<c:url   value="/user/edit/${var.id}"/>">Edit</a>
 					<a href="<c:url   value="/user/delete/${var.id}"/>">Delete</a></td>
+				<td><a href="<c:url   value="/order/allByUser/${var.id}"/>">User
+						Orders</a></td>
 			</tr>
 		</c:forEach>
 	</table>

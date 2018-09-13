@@ -1,13 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="../parts/Userheader.jspf"%>
 
-FORWARDER VIEW
+	<h4>My Orders List</h4>
+
+	<table>
+		<tr class="table-info">
+			<td>Order ID</td>
+			<td>Loading Company</td>
+			<td>Loading Street</td>
+			<td>Loading Post Code</td>
+			<td>Loading City</td>
+			<td>Loading Country</td>
+			<td>Loading Date</td>
+			<td>Unloading Company</td>
+			<td>Unloading Street</td>
+			<td>Unloading Post Code</td>
+			<td>Unloading City</td>
+			<td>Unloading Country</td>
+			<td>Unloading Date</td>
+			<td>Carrier</td>
+			<td>Truck</td>
+			<td>Remarks</td>
+			<td>Client</td>
+			<td>Client Price</td>
+			<td>Carrier Price</td>
+			<td>User</td>
+			<td>Created</td>
+			<td>Order Status</td>
+		</tr>
+		<c:forEach items="${orders}" var="ord">
+			<tr>
+				<td>${ord.id}</td>
+				<td>${ord.loadComp}</td>
+				<td>${ord.loadStreet}</td>
+				<td>${ord.loadPost}</td>
+				<td>${ord.loadCity}</td>
+				<td>${ord.loadCountry}</td>
+				<td>${ord.loadDate}</td>
+				<td>${ord.unloadComp}</td>
+				<td>${ord.unloadStreet}</td>
+				<td>${ord.unloadPost}</td>
+				<td>${ord.unloadCity}</td>
+				<td>${ord.unloadCountry}</td>
+				<td>${ord.unloadDate}</td>
+				<td>${ord.carier.name}</td>
+				<td>${ord.truck.plateNumber}</td>
+				<td>${ord.remarks}</td>
+				<td>${ord.client.name}</td>
+				<td>${ord.clientPrice}</td>
+				<td>${ord.carierPrice}</td>
+				<td>${ord.user.email}</td>
+				<td>${ord.created}</td>
+				<td>${ord.status.status}</td>
+				<td><a href="<c:url   value="/order/edit/${ord.id}"/>">Edit</a>
+					<a href="<c:url   value="/order/delete/${ord.id}"/>">Delete</a></td>
+
+			</tr>
+		</c:forEach>
+
+	</table>
+	<h4>
+		<a href="/RFFapp/order/add">Add New Order</a>
+	</h4>
 </body>
 </html>

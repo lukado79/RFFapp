@@ -80,6 +80,11 @@ public class OrderService {
 			return "redirect:/order/all";
 		}
 	}
+	
+	public String orderByUser(Model model, long id) {
+		model.addAttribute("orders", orderRepository.findAllByUserId(id));
+		return "forwarderView";
+	}
 
 	public List<User> getUsers() {
 		List<User> users = userRepository.findAll();
