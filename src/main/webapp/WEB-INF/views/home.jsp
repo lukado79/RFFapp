@@ -10,7 +10,12 @@
 </head>
 <body>
 
-	<h3>Road Freight Forwarding Support Aplication</h3>
-	<a class="btn btn-primary btn-lg" href="/RFFapp/login" role="button">Login</a>
+	<div class="alert alert-dismissible alert-primary">
+		<h3 class="alert-heading">Road Freight Forwarding Support
+			Aplication</h3>
+	</div>
+	<div>
+		<a class="btn btn-primary btn-lg" href="/RFFapp/login" role="button">Login</a>
+	</div>
 </body>
 </html>
