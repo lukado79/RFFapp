@@ -6,13 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
 	<%@ include file="../parts/header.jspf"%>
 
 	<h4>My Orders List</h4>
 
-	<table>
+	<table class="table table-hover">
 		<tr class="table-info">
 			<td>Order ID</td>
 			<td>Loading Company</td>
@@ -38,7 +40,7 @@
 			<td>Order Status</td>
 		</tr>
 		<c:forEach items="${orders}" var="ord">
-			<tr>
+			<tr class="table-light">
 				<td>${ord.id}</td>
 				<td>${ord.loadComp}</td>
 				<td>${ord.loadStreet}</td>
@@ -69,7 +71,8 @@
 
 	</table>
 	<h4>
-		<a href="/RFFapp/order/add">Add New Order</a>
+		<a class="btn btn-primary btn-lg" href="/RFFapp/order/add"
+			role="button">Add New Order</a>
 	</h4>
 </body>
 </html>
