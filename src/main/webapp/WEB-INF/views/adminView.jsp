@@ -9,7 +9,7 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
-	<%@ include file="../parts/Adminheader.jspf"%>
+	<%@ include file="../parts/header.jspf"%>
 	<p></p>
 	<div>
 		<a class="btn btn-primary btn-lg" href="/RFFapp/user/all" role="button">All Users</a>

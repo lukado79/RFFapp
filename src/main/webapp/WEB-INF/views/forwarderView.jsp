@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="../parts/Userheader.jspf"%>
+	<%@ include file="../parts/header.jspf"%>
 
 	<h4>My Orders List</h4>
 
