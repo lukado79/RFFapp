@@ -10,13 +10,15 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<%@ include file="../parts/header.jspf"%>
+	<p></p>
 	<h1>Add Truck</h1>
 
 	<div class="form-group">
 		<form:form method="post" modelAttribute="truck">
 			Truck Number Plate:<form:errors path="plateNumber" />
-			<form:input path="plateNumber" />
-			<input type="submit" value="Save">
+			<form:input path="plateNumber" /><br>
+			<input class="btn btn-primary" type="submit" value="Save">
 		</form:form>
 	</div>
 </body>

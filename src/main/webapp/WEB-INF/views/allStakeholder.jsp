@@ -10,9 +10,10 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<%@ include file="../parts/header.jspf"%>
 	<h4>Stakeholders List</h4>
 
-	<table>
+	<table class="table table-hover">
 		<tr class="table-info">
 			<th>ID</th>
 			<th>Company Name</th>
@@ -25,7 +26,7 @@
 			<th>Actions</th>
 		</tr>
 		<c:forEach items="${stakeholder}" var="var">
-			<tr>
+			<tr class="table-light">
 				<td>${var.id}</td>
 				<td>${var.name}</td>
 				<td>${var.street}</td>
@@ -42,7 +43,8 @@
 
 	</table>
 	<h4>
-		<a href="/RFFapp/stakeholder/add">Add New Stakeholder</a>
+		<a class="btn btn-primary btn-lg" href="/RFFapp/stakeholder/add"
+			role="button">Add New Stakeholder</a>
 	</h4>
 
 </body>

@@ -10,14 +10,16 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<%@ include file="../parts/header.jspf"%>
 	<h4>Trucks List</h4>
-	<table>
-		<tr q>
-			<th scope="row">ID</th>
-			<th scope="row">Truck Number</th>
+	<table class="table table-hover">
+		<tr class="table-info">
+			<th scope="col">ID</th>
+			<th scope="col">Truck Number</th>
+			<th scope="col">Actions</th>
 		</tr>
 		<c:forEach items="${truck}" var="var">
-			<tr>
+			<tr class="table-light">
 				<td>${var.id}</td>
 				<td>${var.plateNumber}</td>
 				<td><a href="<c:url   value="/truck/edit/${var.id}"/>">Edit</a>
@@ -27,7 +29,8 @@
 		<tr>
 	</table>
 	<h4>
-		<a href="/RFFapp/truck/add">Add New Truck</a>
+		<a class="btn btn-primary btn-lg" href="/RFFapp/truck/add"
+			role="button">Add New Truck</a>
 	</h4>
 
 

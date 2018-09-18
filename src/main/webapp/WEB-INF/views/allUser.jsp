@@ -10,20 +10,20 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
-
+	<%@ include file="../parts/header.jspf"%>
 	<h4>Show All Users</h4>
-	<table>
+	<table class="table table-hover">
 		<tr class="table-info">
-			<th scope="row">ID</th>
-			<th scope="row">First Name</th>
-			<th scope="row">Last Name</th>
-			<th scope="row">Email</th>
-			<th scope="row">Role</th>
-			<th scope="row">Actions</th>
-			<th scope="row">Orders</th>
+			<th scope="col">ID</th>
+			<th scope="col">First Name</th>
+			<th scope="col">Last Name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Role</th>
+			<th scope="col">Actions</th>
+			<th scope="col">Orders</th>
 		</tr>
 		<c:forEach items="${user}" var="var">
-			<tr>
+			<tr class="table-light">
 				<td>${var.id}</td>
 				<td>${var.firstName}</td>
 				<td>${var.lastName}</td>
@@ -38,7 +38,8 @@
 	</table>
 
 	<h4>
-		<a href="/RFFapp/user/add">Add New User</a>
+		<a class="btn btn-primary btn-lg" href="/RFFapp/user/add"
+			role="button">Add New User </a>
 	</h4>
 
 </body>

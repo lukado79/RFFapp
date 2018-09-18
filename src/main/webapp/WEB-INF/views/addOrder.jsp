@@ -10,6 +10,8 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+<%@ include file="../parts/header.jspf"%>
+<p></p>
 	<h1>Add Order</h1>
 	<div class="form-group">
 		<form:form method="post" modelAttribute="order">
@@ -47,7 +49,7 @@
 			<h4>Unloading Date</h4>
 			<br>
 			<form:errors path="unloadDate" />
-			<form:input path="unloadDate" />
+			<form:input path="unloadDate" /><br>
 				Client Price:<form:errors path="clientPrice" />
 			<form:input path="clientPrice" />
 			<br>
@@ -71,12 +73,12 @@
 				itemLabel="status" items="${orderStatus}" />
 			<br>
 				User:<form:select path="user.id" itemValue="id" itemLabel="lastName"
-				items="${user}" />
+				items="${user}" /><br>
 
 
 
 
-			<input type="submit" value="Save">
+			<input class="btn btn-primary" type="submit" value="Save">
 		</form:form>
 	</div>
 

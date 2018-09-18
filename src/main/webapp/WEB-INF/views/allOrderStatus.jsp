@@ -10,15 +10,17 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<%@ include file="../parts/header.jspf"%>
 	<h4>All Order Status</h4>
 
-	<table>
+	<table class="table table-hover">
 		<tr class="table-info">
-			<th scope="row">ID</th>
-			<th scope="row">Order Status</th>
+			<th scope="col">ID</th>
+			<th scope="col">Order Status</th>
+			<th scope="col">Actions</th>
 		</tr>
 		<c:forEach items="${orderStatus}" var="var">
-			<tr>
+			<tr class="table-light">
 				<td>${var.id}</td>
 				<td>${var.status}</td>
 				<td><a href="<c:url   value="/orderStatus/edit/${var.id}"/>">Edit</a>
@@ -28,7 +30,8 @@
 	</table>
 
 	<h4>
-		<a href="/RFFapp/orderStatus/add">Add New Order Status</a>
+		<a class="btn btn-primary btn-lg" href="/RFFapp/orderStatus/add"
+			role="button">Add New Order Status</a>
 	</h4>
 
 

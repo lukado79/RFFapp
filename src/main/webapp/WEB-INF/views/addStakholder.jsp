@@ -10,6 +10,7 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<%@ include file="../parts/header.jspf"%>
 	<h1>Add Stakeholder</h1>
 	<div class="form-group">
 		<form:form method="post" modelAttribute="stakeholder">
@@ -25,10 +26,10 @@
 			<form:input path="country" />
 			Email:<form:errors path="email" />
 			<form:input path="email" />
-			Role:<form:errors path="stakeRole.id"/>
-			<form:select path="stakeRole.id" itemValue="id"
-				itemLabel="roleName" items="${stakRole}" />
-			<input type="submit" value="Save">
+			Role:<form:errors path="stakeRole.id" />
+			<form:select path="stakeRole.id" itemValue="id" itemLabel="roleName"
+				items="${stakRole}" /><br>
+			<input class="btn btn-primary" type="submit" value="Save">
 		</form:form>
 	</div>
 

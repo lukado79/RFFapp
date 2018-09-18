@@ -10,16 +10,16 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
-
+	<%@ include file="../parts/header.jspf"%>
 	<h4>All Stakeholder Role</h4>
-	<table>
+	<table class="table table-hover">
 		<tr class="table-info">
-			<th scope="row">ID</th>
-			<th scope="row">Stakeholder Role</th>
-			<th scope="row">Actions</th>
+			<th scope="col">ID</th>
+			<th scope="col">Stakeholder Role</th>
+			<th scope="col">Actions</th>
 		</tr>
 		<c:forEach items="${stakRole}" var="var">
-			<tr>
+			<tr class="table-light">
 				<td>${var.id}</td>
 				<td>${var.roleName}</td>
 				<td><a href="<c:url   value="/stakRole/edit/${var.id}"/>">Edit</a>
@@ -33,7 +33,8 @@
 
 	</table>
 	<h4>
-		<a href="/RFFapp/stakRole/add">Add New Stakeholder Role</a>
+		<a class="btn btn-primary btn-lg" href="/RFFapp/stakRole/add"
+			role="button">Add New Stakeholder Role</a>
 	</h4>
 
 

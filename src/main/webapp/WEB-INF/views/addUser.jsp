@@ -10,6 +10,7 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<%@ include file="../parts/header.jspf"%>
 	<h1>Add new User</h1>
 
 	<div class="form-group">
@@ -20,10 +21,10 @@
 			<form:input path="lastName" />
 			Email:<form:errors path="email" />
 			<form:input path="email" />
-			Password:<form:input path="password"/>
+			Password:<form:input path="password" />
 			Role:<form:select path="role.id" itemValue="id" itemLabel="roleName"
-				items="${userRole}" />
-			<input type="submit" value="Save">
+				items="${userRole}" /><br>
+			<input class="btn btn-primary" type="submit" value="Save">
 		</form:form>
 	</div>
 </body>
