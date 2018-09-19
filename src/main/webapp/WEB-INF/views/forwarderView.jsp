@@ -14,7 +14,16 @@
 	<br>
 	<br>
 	<div>
+
+
+		<a class="btn btn-primary btn-lg" href="/RFFapp/order/all"
+			role="button">All Orders</a> <a class="btn btn-primary btn-lg"
+			href="/RFFapp/truck/all" role="button">All Trucks</a> <a
+			class="btn btn-primary btn-lg" href="/RFFapp/stakeholder/all"
+			role="button">All Stakeholders</a>
+
 		<h4>My Orders List</h4>
+		<br>
 
 		<table class="table table-hover">
 			<tr class="table-info">
@@ -40,6 +49,7 @@
 				<td>User</td>
 				<td>Created</td>
 				<td>Order Status</td>
+				<td>Actions</td>
 			</tr>
 			<c:forEach items="${orders}" var="ord">
 				<tr class="table-light">
@@ -72,11 +82,7 @@
 			</c:forEach>
 
 		</table>
-		<a class="btn btn-primary btn-lg" href="/RFFapp/order/all"
-			role="button">All Orders</a> <a class="btn btn-primary btn-lg"
-			href="/RFFapp/truck/all" role="button">All Trucks</a> <a
-			class="btn btn-primary btn-lg" href="/RFFapp/stakeholder/all"
-			role="button">All Stakeholders</a>
+
 
 	</div>
 

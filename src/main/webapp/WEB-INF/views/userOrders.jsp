@@ -39,6 +39,7 @@
 			<td>User</td>
 			<td>Created</td>
 			<td>Order Status</td>
+			<td>Actions</td>
 		</tr>
 		<c:forEach items="${orders}" var="ord">
 			<tr class="table-light">

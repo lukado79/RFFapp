@@ -9,11 +9,11 @@
 <link rel="stylesheet"
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
-<body>
+<body style="position: relative; width: 100%;">
 	<%@ include file="../parts/header.jspf"%>
 	<h4>Orders List</h4>
 
-	<table class="table table-hover">
+	<table class="table table-hover" style="position: relative; width: 100%;">
 		<tr class="table-info">
 			<td>Order ID</td>
 			<td>Loading Company</td>
@@ -37,6 +37,7 @@
 			<td>User</td>
 			<td>Created</td>
 			<td>Order Status</td>
+			<td>Actions</td>
 		</tr>
 		<c:forEach items="${order}" var="ord">
 			<tr class="table-light">
