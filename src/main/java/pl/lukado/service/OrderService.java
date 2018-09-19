@@ -83,7 +83,7 @@ public class OrderService {
 	
 	public String orderByUser(Model model, long id) {
 		model.addAttribute("orders", orderRepository.findAllByUserId(id));
-		return "forwarderView";
+		return "userOrders";
 	}
 
 	public List<User> getUsers() {

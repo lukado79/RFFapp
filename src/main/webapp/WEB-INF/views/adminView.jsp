@@ -11,6 +11,7 @@
 <body>
 	<%@ include file="../parts/header.jspf"%>
 	<p></p>
+	
 	<div>
 		<a class="btn btn-primary btn-lg" href="/RFFapp/user/all" role="button">All Users</a>
 		<a class="btn btn-primary btn-lg" href="/RFFapp/order/all" role="button">All Orders</a>

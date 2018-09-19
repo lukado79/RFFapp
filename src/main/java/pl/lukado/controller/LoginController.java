@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.lukado.entity.User;
+import pl.lukado.repository.OrderRepository;
+import pl.lukado.service.OrderService;
 import pl.lukado.service.UserService;
 
 @Controller
@@ -18,6 +20,12 @@ public class LoginController {
 
 	@Autowired
 	UserService userService;
+
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	OrderRepository orderRepository;
 
 	@GetMapping("/login")
 	public String login(HttpSession session, Model model) {
@@ -39,6 +47,7 @@ public class LoginController {
 
 				return "adminView";
 			} else if (BCrypt.checkpw(password, user.getPassword()) && "user".equals(user.getRole().getRoleName())) {
+				 model.addAttribute("orders", orderRepository.findAllByUserId(user.getId()));
 				return "forwarderView";
 			} else {
 				return "wrongLogin";
