@@ -10,7 +10,7 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
-
+	<%@ include file="../parts/header.jspf"%>
 	<h4>Edit User</h4>
 	<div class="form-group">
 		<form:form method="post" modelAttribute="user">
@@ -23,7 +23,8 @@
 			Password:<form:input path="password" />
 			Role:<form:select path="role.id" itemValue="id" itemLabel="roleName"
 				items="${userRole}" />
-			<input type="submit" value="Save">
+			<br>
+			<input class="btn btn-primary" type="submit" value="Save" />
 		</form:form>
 	</div>
 

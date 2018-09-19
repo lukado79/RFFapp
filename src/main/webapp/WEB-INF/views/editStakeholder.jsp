@@ -10,7 +10,7 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
-
+	<%@ include file="../parts/header.jspf"%>
 	<h4>Edit Stakeholder</h4>
 
 	<div class="form-group">
@@ -30,7 +30,8 @@
 			Role:<form:errors path="stakeRole.id" />
 			<form:select path="stakeRole.id" itemValue="id" itemLabel="roleName"
 				items="${stakRole}" />
-			<input type="submit" value="Save">
+			<br>
+			<input class="btn btn-primary" type="submit" value="Save" />
 		</form:form>
 	</div>
 </body>

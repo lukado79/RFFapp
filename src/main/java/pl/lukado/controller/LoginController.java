@@ -44,7 +44,7 @@ public class LoginController {
 				return "wrongLogin";
 			}
 		} catch (NullPointerException e) {
-			return "home";
+			return "wrongLogin";
 		}
 
 	}

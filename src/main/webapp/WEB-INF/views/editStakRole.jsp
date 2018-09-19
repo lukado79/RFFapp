@@ -10,13 +10,15 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<%@ include file="../parts/header.jspf"%>
 	<h4>Edit Stakeholder Role</h4>
 
 	<div class="form-group">
 		<form:form method="post" modelAttribute="stakRole">
 						Stakeholder Role:<form:errors path="roleName" />
 			<form:input path="roleName" />
-			<input type="submit" value="Save">
+			<br>
+			<input class="btn btn-primary" type="submit" value="Save" />
 		</form:form>
 	</div>
 </body>

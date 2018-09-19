@@ -10,13 +10,15 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<%@ include file="../parts/header.jspf"%>
 	<h4>Edit Order Status</h4>
 
 	<div class="form-group">
 		<form:form method="post" modelAttribute="orderStatus">
 	Order Status:<form:errors path="status" />
 			<form:input path="status" />
-			<input type="submit" value="Save" />
+			<br>
+			<input class="btn btn-primary" type="submit" value="Save" />
 		</form:form>
 	</div>
 

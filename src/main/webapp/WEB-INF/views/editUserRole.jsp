@@ -10,12 +10,14 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+	<%@ include file="../parts/header.jspf"%>
 	<h4>Edit User Role</h4>
 	<div class="form-group"></div>
 	<form:form method="post" modelAttribute="userRole">
 				Role Name:<form:errors path="roleName" />
 		<form:input path="roleName" />
-		<input type="submit" value="Save">
+		<br>
+		<input class="btn btn-primary" type="submit" value="Save" />
 
 	</form:form>
 

@@ -64,7 +64,7 @@
 				<td>${ord.created}</td>
 				<td>${ord.status.status}</td>
 				<td><a href="<c:url   value="/order/edit/${ord.id}"/>">Edit</a>
-					<a href="<c:url   value="/order/delete/${ord.id}"/>">Delete</a></td>
+				</td>
 
 			</tr>
 		</c:forEach>
