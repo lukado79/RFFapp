@@ -48,12 +48,16 @@ public class OrderController {
 	public String deleteOrder(@PathVariable long id, HttpSession session) {
 		User user;
 		user = (User) session.getAttribute("user");
-		if("admin".equals(user.getRole().getRoleName())) {
-			return orderService.deleteOrder(id);
-		}else if("user".equals(user.getRole().getRoleName())){
-			return "accessView";
-		}else {
-			return "wrongLogin";
+		try {
+			if("admin".equals(user.getRole().getRoleName())) {
+				return orderService.deleteOrder(id);
+			}else if("user".equals(user.getRole().getRoleName())){
+				return "accessView";
+			}else {
+				return "wrongLogin";
+			}
+		} catch (NullPointerException e) {
+			return "wrongData";
 		}
 		
 
