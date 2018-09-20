@@ -2,6 +2,7 @@ package pl.lukado.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +45,17 @@ public class OrderController {
 	}
 
 	@GetMapping("/delete/{id}")
-	public String deleteOrder(@PathVariable long id) {
-		return orderService.deleteOrder(id);
+	public String deleteOrder(@PathVariable long id, HttpSession session) {
+		User user;
+		user = (User) session.getAttribute("user");
+		if("admin".equals(user.getRole().getRoleName())) {
+			return orderService.deleteOrder(id);
+		}else if("user".equals(user.getRole().getRoleName())){
+			return "accessView";
+		}else {
+			return "wrongLogin";
+		}
+		
 
 	}
 
