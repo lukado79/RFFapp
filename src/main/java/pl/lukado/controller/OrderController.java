@@ -29,21 +29,43 @@ public class OrderController {
 	OrderService orderService;
 
 	@GetMapping("/add")
-	public String addOrder(Model model) {
-		return orderService.addOrder(model);
+	public String addOrder(Model model, HttpSession session) {
+
+		User user;
+		user = (User) session.getAttribute("user");
+		try {
+			if ("admin".equals(user.getRole().getRoleName()) || "user".equals(user.getRole().getRoleName())) {
+				return orderService.addOrder(model);
+			} else {
+				return "wrongLogin";
+			}
+		} catch (NullPointerException e) {
+			return "wrongData";
+		}
 
 	}
 
 	@PostMapping("/add")
-	public String addOrder(@Valid @ModelAttribute Order order, BindingResult result) {
-		return orderService.addOrder(order, result);
+	public String addOrder(@Valid @ModelAttribute Order order, BindingResult result, HttpSession session) {
+
+		User user;
+		user = (User) session.getAttribute("user");
+		try {
+			if ("admin".equals(user.getRole().getRoleName()) || "user".equals(user.getRole().getRoleName())) {
+				return orderService.addOrder(order, result);
+			} else {
+				return "wrongLogin";
+			}
+		} catch (NullPointerException e) {
+			return "wrongData";
+		}
 	}
 
 	@GetMapping("/all")
 	public String allOrder(Model model, HttpSession session) {
 		User user;
 		user = (User) session.getAttribute("user");
-		
+
 		try {
 			if ("admin".equals(user.getRole().getRoleName()) || "user".equals(user.getRole().getRoleName())) {
 				return orderService.allOrder(model);
@@ -75,18 +97,55 @@ public class OrderController {
 	}
 
 	@GetMapping("/edit/{id}")
-	public String editOrder(Model model, @PathVariable long id) {
-		return orderService.editOrder(model, id);
+	public String editOrder(Model model, @PathVariable long id, HttpSession session) {
+
+		User user;
+		user = (User) session.getAttribute("user");
+		try {
+			if ("admin".equals(user.getRole().getRoleName()) || "user".equals(user.getRole().getRoleName())) {
+				return orderService.editOrder(model, id);
+			} else {
+				return "wrongLogin";
+			}
+		} catch (NullPointerException e) {
+			return "wrongData";
+		}
+
 	}
 
 	@PostMapping("/edit/{id}")
-	public String editOrder(@Valid @ModelAttribute Order order, BindingResult result) {
-		return orderService.editOrder(order, result);
+	public String editOrder(@Valid @ModelAttribute Order order, BindingResult result, HttpSession session) {
+		
+		User user;
+		user = (User) session.getAttribute("user");
+		try {
+			if ("admin".equals(user.getRole().getRoleName()) || "user".equals(user.getRole().getRoleName())) {
+				return orderService.editOrder(order, result);
+			} else {
+				return "wrongLogin";
+			}
+		} catch (NullPointerException e) {
+			return "wrongData";
+		}
+		
 	}
 
 	@GetMapping("/allByUser/{id}")
-	public String allByUser(Model model, @PathVariable long id) {
-		return orderService.orderByUser(model, id);
+	public String allByUser(Model model, @PathVariable long id, HttpSession session) {
+		
+		User user;
+		user = (User) session.getAttribute("user");
+		try {
+			if ("admin".equals(user.getRole().getRoleName()) || "user".equals(user.getRole().getRoleName())) {
+				return orderService.orderByUser(model, id);
+			} else {
+				return "wrongLogin";
+			}
+		} catch (NullPointerException e) {
+			return "wrongData";
+		}
+		
+		
 	}
 
 	@ModelAttribute("user")
