@@ -40,8 +40,20 @@ public class OrderController {
 	}
 
 	@GetMapping("/all")
-	public String allOrder(Model model) {
-		return orderService.allOrder(model);
+	public String allOrder(Model model, HttpSession session) {
+		User user;
+		user = (User) session.getAttribute("user");
+		
+		try {
+			if ("admin".equals(user.getRole().getRoleName()) || "user".equals(user.getRole().getRoleName())) {
+				return orderService.allOrder(model);
+			} else {
+				return "wrongLogin";
+			}
+		} catch (NullPointerException e) {
+			return "wrongData";
+		}
+
 	}
 
 	@GetMapping("/delete/{id}")
@@ -49,17 +61,16 @@ public class OrderController {
 		User user;
 		user = (User) session.getAttribute("user");
 		try {
-			if("admin".equals(user.getRole().getRoleName())) {
+			if ("admin".equals(user.getRole().getRoleName())) {
 				return orderService.deleteOrder(id);
-			}else if("user".equals(user.getRole().getRoleName())){
+			} else if ("user".equals(user.getRole().getRoleName())) {
 				return "accessView";
-			}else {
+			} else {
 				return "wrongLogin";
 			}
 		} catch (NullPointerException e) {
 			return "wrongData";
 		}
-		
 
 	}
 
