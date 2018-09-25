@@ -23,17 +23,35 @@ public class LoginController {
 
 	@Autowired
 	OrderService orderService;
-	
+
 	@Autowired
 	OrderRepository orderRepository;
 
 	@GetMapping("/login")
 	public String login(HttpSession session, Model model) {
 
-		session.invalidate();
-		model.addAttribute("user", new User());
+		try {
+			if (session.getAttribute("user") != null) {
+				User user;
+				user = (User) session.getAttribute("user");
+				if ("admin".equals(user.getRole().getRoleName())) {
+					return "adminView";
+				} else if ("user".equals(user.getRole().getRoleName())) {
+					return "forwarderView";
+				} else {
+					return "wrongLogin";
+				}
+			} else {
+				session.invalidate();
+				model.addAttribute("user", new User());
 
-		return "login";
+				return "login";
+			}
+		} catch (NullPointerException e) {
+			return "wrongData";
+			
+		}
+
 	}
 
 	@PostMapping("/login")
@@ -47,7 +65,7 @@ public class LoginController {
 
 				return "adminView";
 			} else if (BCrypt.checkpw(password, user.getPassword()) && "user".equals(user.getRole().getRoleName())) {
-				 model.addAttribute("orders", orderRepository.findAllByUserId(user.getId()));
+				model.addAttribute("orders", orderRepository.findAllByUserId(user.getId()));
 				return "forwarderView";
 			} else {
 				return "wrongLogin";

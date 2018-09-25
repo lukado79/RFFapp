@@ -13,8 +13,7 @@
 
 		<strong>Access Denied!</strong>
 		<p>
-			Back to your Homepage<a href="/RFFapp/login" class="alert-link">Log
-				in</a>
+			<a href="/RFFapp/login" class="alert-link">Back to your Homepage</a>
 		</p>
 	</div>
 </body>
