@@ -37,6 +37,7 @@ public class LoginController {
 				if ("admin".equals(user.getRole().getRoleName())) {
 					return "adminView";
 				} else if ("user".equals(user.getRole().getRoleName())) {
+					model.addAttribute("orders", orderRepository.findAllByUserId(user.getId()));
 					return "forwarderView";
 				} else {
 					return "wrongLogin";
