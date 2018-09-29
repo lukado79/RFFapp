@@ -49,7 +49,7 @@ public class Order {
 
 	@NotNull
 	@Column(name = "Loading_Date")
-	@DateTimeFormat(pattern = "dd/MM/YY")
+	@DateTimeFormat(pattern = "MM/dd/yyyy HH:mm")
 	private Date loadDate;
 
 	@NotEmpty
@@ -79,7 +79,7 @@ public class Order {
 
 	@NotNull
 	@Column(name = "Unloading_Date")
-	@DateTimeFormat(pattern = "dd/MM/YY")
+	@DateTimeFormat(pattern = "MM/dd/yyyy HH:mm")
 	private Date unloadDate;
 
 	@ManyToOne
