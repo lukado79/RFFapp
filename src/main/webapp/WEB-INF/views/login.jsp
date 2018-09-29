@@ -15,9 +15,9 @@
 		<form:form method="post" modelAttribute="user">
 		
 			Enter email:
-			<form:input path="email" />
+			<form:input path="email" placeholder="Enter Email" />
 			Password:
-			<form:input path="password" />
+			<form:input type="password" path="password" placeholder="Enter Password"/>
 
 			<input type="submit" value="Login">
 		</form:form>
