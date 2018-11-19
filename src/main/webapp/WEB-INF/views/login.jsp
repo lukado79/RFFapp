@@ -11,13 +11,21 @@
 	href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 </head>
 <body>
+
+	<div class="alert alert-dismissible alert-primary">
+		<h3>
+			<a href="/RFFapp/home" class="alert-link">Back to home</a>
+		</h3>
+	</div>
+
 	<div class="form-group">
 		<form:form method="post" modelAttribute="user">
 		
 			Enter email:
 			<form:input path="email" placeholder="Enter Email" />
 			Password:
-			<form:input type="password" path="password" placeholder="Enter Password"/>
+			<form:input type="password" path="password"
+				placeholder="Enter Password" />
 
 			<input type="submit" value="Login">
 		</form:form>
